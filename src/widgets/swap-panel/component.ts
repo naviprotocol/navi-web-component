@@ -190,7 +190,7 @@ export class SwapPanel extends LitElement {
           <iframe
             @load=${this._onIframeLoad}
             id="navi-swap-panel-iframe"
-            src="https://dex-aggregator-next-q997xdz2u-chillso.vercel.app/widget/swap"
+            src="https://www.navi.ag/widget/swap"
             title="Swap"
             class=${this.iframeLoaded ? 'loaded' : ''}
           ></iframe>

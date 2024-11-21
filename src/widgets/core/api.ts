@@ -11,13 +11,22 @@ export async function signTransaction(
   return resp;
 }
 
-
-export async function emitEvent(data: any, context: {
-  client: any;
-}) {
+export async function emitEvent(
+  data: any,
+  context: {
+    client: any;
+  },
+) {
   if (!context.client.events) {
     return;
   }
-  context.client.events.emit(data.event, data.data)
+  context.client.events.emit(data.event, data.data);
 }
 
+// eslint-disable-next-line camelcase
+export async function navi_getHostInfo() {
+  return {
+    origin: window.location.origin,
+    pathname: window.location.pathname,
+  };
+}
