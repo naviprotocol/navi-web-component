@@ -12,7 +12,7 @@ npm i navi-web-component
 ```javascript
 import { SwapPanelClient } from 'navi-web-component'
 
-const swapPanelClient = new SwapPanelClient()
+const swapPanelClient = SwapPanelClient.getInstance()
 
 // Developers need to register the onSignTransaction method for transaction signing
 swapPanelClient.onSignTransaction = async (txb) => {

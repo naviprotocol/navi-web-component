@@ -1,6 +1,6 @@
 import { Transaction } from '@mysten/sui/transactions';
 
-export async function signTransaction(
+export async function navi_signTransaction(
   data: { bytes: string; address: string },
   context: {
     client: any;
@@ -11,7 +11,7 @@ export async function signTransaction(
   return resp;
 }
 
-export async function emitEvent(
+export async function navi_emitEvent(
   data: any,
   context: {
     client: any;

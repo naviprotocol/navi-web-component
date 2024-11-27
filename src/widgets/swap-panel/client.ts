@@ -1,5 +1,5 @@
 import { WidgetClient } from '../core/client.js';
-import { SwapPanel } from './component.js'
+import { SwapPanel } from './component.js';
 import { isBrowser } from '../../tools.js';
 import eventsFactory from './events.js';
 
@@ -32,8 +32,14 @@ export class SwapPanelClient extends WidgetClient<SwapPanel> {
       return;
     }
     this.widget.removeEventListener('navi-swap-panel-close', this.onClose);
-    this.widget.removeEventListener('navi-swap-panel-click-connect', this.onClickConnect);
-    this.widget.removeEventListener('navi-swap-panel-swap-success', this.onSwapSuccess);
+    this.widget.removeEventListener(
+      'navi-swap-panel-click-connect',
+      this.onClickConnect,
+    );
+    this.widget.removeEventListener(
+      'navi-swap-panel-swap-success',
+      this.onSwapSuccess,
+    );
   }
 
   // set the user address
@@ -62,7 +68,16 @@ export class SwapPanelClient extends WidgetClient<SwapPanel> {
 
   public events: ReturnType<typeof eventsFactory>;
 
-  constructor() {
+  private static instance: any = null;
+
+  static getInstance(): SwapPanelClient {
+    if (!SwapPanelClient.instance) {
+      SwapPanelClient.instance = new SwapPanelClient();
+    }
+    return SwapPanelClient.instance;
+  }
+
+  private constructor() {
     super('navi-swap-panel');
     this.onClose = this.onClose.bind(this);
     this.onClickConnect = this.onClickConnect.bind(this);
@@ -72,11 +87,17 @@ export class SwapPanelClient extends WidgetClient<SwapPanel> {
       return;
     }
     this.widget.addEventListener('navi-swap-panel-close', this.onClose);
-    this.widget.addEventListener('navi-swap-panel-click-connect', this.onClickConnect);
-    this.widget.addEventListener('navi-swap-panel-swap-success', this.onSwapSuccess);
+    this.widget.addEventListener(
+      'navi-swap-panel-click-connect',
+      this.onClickConnect,
+    );
+    this.widget.addEventListener(
+      'navi-swap-panel-swap-success',
+      this.onSwapSuccess,
+    );
     this.readyPromise.then(() => {
       this.events.emit('ready', {});
-    })
+    });
   }
 
   private onClose() {
@@ -91,4 +112,3 @@ export class SwapPanelClient extends WidgetClient<SwapPanel> {
     this.events.emit('swapSuccess', event.detail);
   }
 }
-

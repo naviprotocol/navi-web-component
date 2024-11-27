@@ -3,7 +3,7 @@
   "description": "Web component for Navi Aggregator",
   "license": "MIT",
   "author": "zado",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "type": "module",
   "main": "dist/src/index.js",
   "module": "dist/src/index.js",
@@ -62,6 +62,7 @@
       "@typescript-eslint"
     ],
     "rules": {
+      "camelcase": "off",
       "import/no-named-default": "off",
       "import/no-extraneous-dependencies": "off",
       "no-unused-vars": "off",
