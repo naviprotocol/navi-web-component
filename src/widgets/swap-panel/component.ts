@@ -112,7 +112,7 @@ export class SwapPanel extends LitElement {
       opacity: 1;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
       .navi-swap-panel {
         width: 100vw;
       }

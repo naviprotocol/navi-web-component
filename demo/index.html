@@ -17,10 +17,10 @@
 
     <script type="module">
       import { html, render } from 'lit';
-      import '../dist/src/swapPanelClient.js';
+      import '../dist/src/widgets/swap-panel/client.js';
 
       render(
-        html` <navi-swap-panel .isOpen=${true}></navi-swap-panel> `,
+        html` <navi-swap-panel openState="on"></navi-swap-panel> `,
         document.querySelector('#demo'),
       );
     </script>
