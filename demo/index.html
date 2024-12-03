@@ -16,13 +16,12 @@
     <div id="demo"></div>
 
     <script type="module">
-      import { html, render } from 'lit';
-      import '../dist/src/widgets/swap-panel/client.js';
+      import { SwapPanelClient } from '../dist/src/widgets/swap-panel/client.js';
 
-      render(
-        html` <navi-swap-panel openState="on"></navi-swap-panel> `,
-        document.querySelector('#demo'),
-      );
+      const swapPanelClient = new SwapPanelClient();
+
+      swapPanelClient.show();
+      swapPanelClient.changeTheme('dark');
     </script>
   </body>
 </html>

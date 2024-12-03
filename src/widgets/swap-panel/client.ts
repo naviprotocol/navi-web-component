@@ -42,6 +42,14 @@ export class SwapPanelClient extends WidgetClient<SwapPanel> {
     );
   }
 
+  public async changeTheme(theme: string) {
+    const res = await this.callApi('changeTheme', { theme });
+    if (res) {
+      this.widget?.setAttribute('theme', theme);
+    }
+    return res;
+  }
+
   // set the user address
   public async setUserAddress(address: string) {
     const res = await this.callApi('setUserAddress', { address });

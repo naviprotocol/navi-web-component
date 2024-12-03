@@ -1,8 +1,12 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
+import styles from './style.js';
 
 export class SwapPanel extends LitElement {
   @property({ type: String }) openState = 'off';
+
+  @property({ type: String })
+  theme = 'dark';
 
   @state() iframeLoaded = false;
 
@@ -27,104 +31,15 @@ export class SwapPanel extends LitElement {
     this.dispatchEvent(new CustomEvent('navi-swap-panel-close', options));
   }
 
-  static styles = css`
-    :host {
-      /* display: block;
-      padding: 25px;
-      color: var(--navi-aggregator-text-color, #000); */
-    }
-    .navi-swap-panel {
-      position: fixed;
-      z-index: 9999;
-      width: 400px;
-      height: 100vh;
-      right: 0;
-      top: 0;
-      transform: translateX(500px);
-      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .navi-swap-panel.open {
-      transform: translateX(0);
-    }
-    .navi-swap-panel-content {
-      height: 100%;
-      position: relative;
-      z-index: 20;
-      padding: 20px 0px;
-      display: flex;
-      flex-direction: column;
-      background-color: #000;
-      border-left: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow:
-        rgba(0, 0, 0, 0.24) 12px 16px 24px 0px,
-        rgba(0, 0, 0, 0.24) 12px 8px 12px 0px,
-        rgba(0, 0, 0, 0.32) 4px 4px 8px 0px;
-    }
-    .navi-swap-panel-header {
-      flex: 0 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      padding: 0px 25px;
-    }
-    .navi-swap-panel-header-title {
-      font-size: 26px;
-      font-weight: 600;
-      color: #fff;
-    }
-    .navi-swap-panel-header-close {
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .navi-swap-panel-header-close:hover {
-      opacity: 0.7;
-    }
-    .navi-swap-panel-sidebar {
-      padding-top: 90px;
-      padding-right: 46px;
-      padding-left: 16px;
-      background-color: transparent;
-      position: absolute;
-      height: 100%;
-      left: -64px;
-      top: 0px;
-      border-top-left-radius: 6px;
-      border-bottom-left-radius: 6px;
-      z-index: 10;
-      border-radius: 30px 0px 0px 30px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .navi-swap-panel-sidebar:hover {
-      cursor: pointer;
-      transform: translateX(4px);
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-    #navi-swap-panel-iframe {
-      width: 100%;
-      border: 0;
-      margin: 0;
-      padding: 0;
-      flex: 1 1 auto;
-      opacity: 0;
-    }
-    #navi-swap-panel-iframe.loaded {
-      opacity: 1;
-    }
-
-    @media (max-width: 500px) {
-      .navi-swap-panel {
-        width: 100vw;
-      }
-      .navi-swap-panel-sidebar {
-        display: none;
-      }
-    }
-  `;
+  static styles = styles;
 
   render() {
     return html`
-      <div class="navi-swap-panel ${this.openState === 'on' ? 'open' : ''}">
+      <div
+        class="navi-swap-panel ${this.theme} ${this.openState === 'on'
+          ? 'open'
+          : ''}"
+      >
         <div
           class="navi-swap-panel-sidebar"
           @click=${this._onClose}
@@ -136,18 +51,17 @@ export class SwapPanel extends LitElement {
             width="24"
             height="24"
             viewBox="0 0 24 24"
+            stroke="${this.theme === 'light' ? '#000' : '#fff'}"
             fill="none"
           >
             <path
               d="M13 17L18 12L13 7"
-              stroke="white"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
             ></path>
             <path
               d="M6 17L11 12L6 7"
-              stroke="white"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -164,6 +78,7 @@ export class SwapPanel extends LitElement {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               tabindex="0"
+              stroke="white"
               @click=${this._onClose}
               @keydown=${(e: KeyboardEvent) =>
                 e.key === 'Enter' && this._onClose()}
@@ -175,7 +90,7 @@ export class SwapPanel extends LitElement {
                 width="38"
                 height="38"
                 rx="19"
-                stroke="white"
+                stroke="${this.theme === 'light' ? '#000' : '#fff'}"
                 stroke-opacity="0.2"
                 stroke-width="2"
               />
@@ -183,7 +98,7 @@ export class SwapPanel extends LitElement {
                 fill-rule="evenodd"
                 clip-rule="evenodd"
                 d="M13.2929 13.2929C13.6834 12.9024 14.3166 12.9024 14.7071 13.2929L20 18.5858L25.2929 13.2929C25.6834 12.9024 26.3166 12.9024 26.7071 13.2929C27.0976 13.6834 27.0976 14.3166 26.7071 14.7071L21.4142 20L26.7071 25.2929C27.0976 25.6834 27.0976 26.3166 26.7071 26.7071C26.3166 27.0976 25.6834 27.0976 25.2929 26.7071L20 21.4142L14.7071 26.7071C14.3166 27.0976 13.6834 27.0976 13.2929 26.7071C12.9024 26.3166 12.9024 25.6834 13.2929 25.2929L18.5858 20L13.2929 14.7071C12.9024 14.3166 12.9024 13.6834 13.2929 13.2929Z"
-                fill="white"
+                fill="${this.theme === 'light' ? '#000' : '#fff'}"
               />
             </svg>
           </div>

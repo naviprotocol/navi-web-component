@@ -78,4 +78,8 @@ swapPanelClient.events.on('show', () => {
 // hide swap panel
 swapPanelClient.hide()
 
+// change theme
+swapPanelClient.changeTheme('dark')
+swapPanelClient.changeTheme('light')
+
 ```
