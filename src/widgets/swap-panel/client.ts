@@ -74,6 +74,16 @@ export class SwapPanelClient extends WidgetClient<SwapPanel> {
     return res as boolean;
   }
 
+  // set the service fee
+  public async setServiceFee(
+    config: { fee: number; receiverAddress: string } | null,
+  ) {
+    const res = await this.callApi('setServiceFee', {
+      serviceFee: config,
+    });
+    return res as boolean;
+  }
+
   public events: ReturnType<typeof eventsFactory>;
 
   private static instance: any = null;

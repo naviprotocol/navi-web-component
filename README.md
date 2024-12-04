@@ -82,4 +82,8 @@ swapPanelClient.hide()
 swapPanelClient.changeTheme('dark')
 swapPanelClient.changeTheme('light')
 
+// set service fee
+// max fee is 0.01
+swapPanelClient.setServiceFee({ fee: 0.01, receiverAddress: '0x1234567890123456789012345678901234567890' })
+
 ```
