@@ -3,7 +3,7 @@
   "description": "Web component for Navi Aggregator",
   "license": "MIT",
   "author": "zado",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "type": "module",
   "main": "dist/src/index.js",
   "module": "dist/src/index.js",
