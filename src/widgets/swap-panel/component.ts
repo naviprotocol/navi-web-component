@@ -1,6 +1,7 @@
 import { html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import styles from './style.js';
+import { serviceOrigin } from '../../config.js';
 
 export class SwapPanel extends LitElement {
   @property({ type: String }) openState = 'off';
@@ -105,8 +106,9 @@ export class SwapPanel extends LitElement {
           <iframe
             @load=${this._onIframeLoad}
             id="navi-swap-panel-iframe"
-            src="https://www.navi.ag/widget/swap"
+            src="${serviceOrigin}/widget/swap"
             title="Swap"
+            allow="clipboard-write self ${serviceOrigin}"
             class=${this.iframeLoaded ? 'loaded' : ''}
           ></iframe>
         </div>

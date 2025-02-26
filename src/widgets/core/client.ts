@@ -1,8 +1,8 @@
 import { Transaction } from '@mysten/sui/transactions';
 import { isBrowser, getWidget } from '../../tools.js';
 import * as api from './api.js';
+import { serviceOrigin } from '../../config.js';
 
-const serviceOrigin = 'https://www.navi.ag';
 let callbackIndex = 0;
 
 export class WidgetClient<T extends HTMLElement> {
