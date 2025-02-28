@@ -1,1 +1,1 @@
-export const serviceOrigin = 'https://www.navi.ag';
+export const serviceOrigin = 'https://astros.ag';
