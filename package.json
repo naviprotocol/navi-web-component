@@ -1,9 +1,9 @@
 {
   "name": "navi-web-component",
-  "description": "Web component for Navi Aggregator",
+  "description": "NAVI Protocol Web component",
   "license": "MIT",
   "author": "zado",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "type": "module",
   "main": "dist/src/index.js",
   "module": "dist/src/index.js",

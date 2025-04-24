@@ -1,4 +1,4 @@
-import mitt, { Emitter } from "mitt";
+import mitt, { Emitter } from 'mitt';
 
 declare type CoinInfo = {
   address: string;
@@ -40,4 +40,3 @@ export default function eventsFactory(): Emitter<Events> {
   // @ts-ignore
   return mitt();
 }
-

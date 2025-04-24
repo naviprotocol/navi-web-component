@@ -71,7 +71,7 @@ export class SwapPanel extends LitElement {
         </div>
         <div class="navi-swap-panel-content">
           <div class="navi-swap-panel-header">
-            <div class="navi-swap-panel-header-title">NAVI Aggregator</div>
+            <div class="navi-swap-panel-header-title">Astros Swap</div>
             <svg
               width="30"
               height="30"
