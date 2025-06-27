@@ -62,27 +62,16 @@ export default css`
     opacity: 0.7;
   }
   .navi-swap-panel-sidebar {
-    padding-top: 90px;
-    padding-right: 46px;
-    padding-left: 16px;
-    background-color: transparent;
+    width: calc(100vw - 400px);
+    height: 100vh;
     position: absolute;
-    height: 100%;
-    left: -64px;
-    top: 0px;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-    z-index: 10;
-    border-radius: 30px 0px 0px 30px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .light .navi-swap-panel-sidebar:hover {
-    background-color: rgba(245, 245, 245, 0.6);
-  }
-  .navi-swap-panel-sidebar:hover {
-    cursor: pointer;
-    transform: translateX(4px);
+    right: 400px;
+    top: 0;
     background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+  }
+  .navi-swap-panel.open .navi-swap-panel-sidebar {
+    display: block;
   }
   #navi-swap-panel-iframe {
     width: 100%;

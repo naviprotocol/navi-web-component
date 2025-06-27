@@ -46,29 +46,7 @@ export class SwapPanel extends LitElement {
           @click=${this._onClose}
           @keydown=${(e: KeyboardEvent) => e.key === 'Enter' && this._onClose()}
           tabindex="0"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke="${this.theme === 'light' ? '#000' : '#fff'}"
-            fill="none"
-          >
-            <path
-              d="M13 17L18 12L13 7"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></path>
-            <path
-              d="M6 17L11 12L6 7"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></path>
-          </svg>
-        </div>
+        ></div>
         <div class="navi-swap-panel-content">
           <div class="navi-swap-panel-header">
             <div class="navi-swap-panel-header-title">Astros Swap</div>
