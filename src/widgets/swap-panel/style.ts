@@ -5,7 +5,6 @@ export default css`
   }
   .navi-swap-panel {
     position: fixed;
-    z-index: 9999;
     width: 100vw;
     height: 100vh;
     right: 0;
