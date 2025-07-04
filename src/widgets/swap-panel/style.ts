@@ -49,8 +49,8 @@ export default css`
     padding: 0px 25px;
   }
   .navi-swap-panel-header-title {
-    font-size: 26px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 500;
     color: #fff;
   }
   .light .navi-swap-panel-header-title {
