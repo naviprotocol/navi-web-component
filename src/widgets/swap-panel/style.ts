@@ -70,6 +70,7 @@ export default css`
     right: 0;
     top: 0;
     background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
     display: none;
   }
   .navi-swap-panel.open .navi-swap-panel-sidebar {
