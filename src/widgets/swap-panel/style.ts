@@ -6,22 +6,21 @@ export default css`
   .navi-swap-panel {
     position: fixed;
     z-index: 9999;
-    width: 400px;
+    width: 100vw;
     height: 100vh;
     right: 0;
     top: 0;
-    transform: translateX(500px);
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .navi-swap-panel.open {
-    transform: translateX(0);
   }
   .navi-swap-panel-content {
     height: 100%;
-    position: relative;
+    position: absolute;
+    width: 400px;
     z-index: 20;
     padding: 20px 0px;
+    right: 0;
     display: flex;
+    transform: translateX(500px);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     flex-direction: column;
     background-color: #000;
     border-left: 1px solid rgba(255, 255, 255, 0.05);
@@ -29,6 +28,9 @@ export default css`
       rgba(0, 0, 0, 0.24) 12px 16px 24px 0px,
       rgba(0, 0, 0, 0.24) 12px 8px 12px 0px,
       rgba(0, 0, 0, 0.32) 4px 4px 8px 0px;
+  }
+  .navi-swap-panel.open .navi-swap-panel-content {
+    transform: translateX(0);
   }
   .light .navi-swap-panel-content {
     border-left: 1px solid rgba(0, 0, 0, 0.05);
@@ -62,10 +64,10 @@ export default css`
     opacity: 0.7;
   }
   .navi-swap-panel-sidebar {
-    width: calc(100vw - 400px);
+    width: 100vw;
     height: 100vh;
     position: absolute;
-    right: 400px;
+    right: 0;
     top: 0;
     background-color: rgba(0, 0, 0, 0.6);
     display: none;
