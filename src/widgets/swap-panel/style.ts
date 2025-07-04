@@ -10,7 +10,7 @@ export default css`
     height: 100vh;
     right: 0;
     top: 0;
-    display: none;
+    z-index: -1;
   }
   .navi-swap-panel-content {
     height: 100%;
@@ -31,7 +31,7 @@ export default css`
       rgba(0, 0, 0, 0.32) 4px 4px 8px 0px;
   }
   .navi-swap-panel.open {
-    display: block;
+    z-index: 9999;
   }
   .navi-swap-panel.open .navi-swap-panel-content {
     transform: translateX(0);
@@ -93,7 +93,7 @@ export default css`
   }
 
   @media (max-width: 590px) {
-    .navi-swap-panel {
+    .navi-swap-panel-content {
       width: 100vw;
     }
     .navi-swap-panel-sidebar {
