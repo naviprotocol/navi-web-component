@@ -10,6 +10,7 @@ export default css`
     height: 100vh;
     right: 0;
     top: 0;
+    display: none;
   }
   .navi-swap-panel-content {
     height: 100%;
@@ -28,6 +29,9 @@ export default css`
       rgba(0, 0, 0, 0.24) 12px 16px 24px 0px,
       rgba(0, 0, 0, 0.24) 12px 8px 12px 0px,
       rgba(0, 0, 0, 0.32) 4px 4px 8px 0px;
+  }
+  .navi-swap-panel.open {
+    display: block;
   }
   .navi-swap-panel.open .navi-swap-panel-content {
     transform: translateX(0);
