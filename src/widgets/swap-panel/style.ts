@@ -93,9 +93,11 @@ export default css`
   }
 
   @media (max-width: 590px) {
+    .navi-swap-panel {
+      height: calc(100vh - 64px);
+    }
     .navi-swap-panel-content {
       width: 100vw;
-      height: calc(100vh - 64px);
     }
     .navi-swap-panel-sidebar {
       display: none;
