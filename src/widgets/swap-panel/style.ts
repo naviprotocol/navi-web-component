@@ -16,7 +16,8 @@ export default css`
     position: absolute;
     width: 400px;
     z-index: 20;
-    padding: 20px 0px;
+    padding-top: 20px;
+    box-sizing: border-box;
     right: 0;
     display: flex;
     transform: translateX(500px);
@@ -94,9 +95,11 @@ export default css`
   @media (max-width: 590px) {
     .navi-swap-panel-content {
       width: 100vw;
+      height: calc(100vh - 64px);
     }
     .navi-swap-panel-sidebar {
       display: none;
+      height: calc(100vh - 64px);
     }
   }
 `;
