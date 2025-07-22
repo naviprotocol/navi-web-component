@@ -92,9 +92,10 @@ export default css`
     opacity: 1;
   }
 
-  @media (max-width: 590px) {
+  @media (max-width: 640px) {
     .navi-swap-panel {
       height: calc(100vh - 64px);
+      height: calc(100dvh - 64px);
     }
     .navi-swap-panel-content {
       width: 100vw;
@@ -102,6 +103,7 @@ export default css`
     .navi-swap-panel-sidebar {
       display: none;
       height: calc(100vh - 64px);
+      height: calc(100dvh - 64px);
     }
   }
 `;
